@@ -130,3 +130,11 @@ dmypy.json
 
 # 增加.idea/文件夹
 .idea/
+
+# 增加dataset_voc文件夹
+02_main_code/dataset_voc/
+
+# 增加产出数据的文件夹
+02_main_code/nrrd_file/
+02_main_code/saved_images-1
+02_main_code/saved_images
