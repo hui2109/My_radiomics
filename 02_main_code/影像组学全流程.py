@@ -21,21 +21,21 @@ from sklearn.utils import shuffle
 
 
 def _extract_features(img, mask):
-    extractor = featureextractor.RadiomicsFeatureExtractor(force2D=True)
+    extractor = featureextractor.RadiomicsFeatureExtractor()
     # extractor.disableAllFeatures()
     # extractor.enableFeaturesByName(firstorder=['Mean', 'Skewness'])
     # extractor.enableFeatureClassByName('glcm')
     extractor.enableAllFeatures()
     extractor.enableImageTypes(
         Original={},
-        LoG={},
-        Wavelet={},
+        # LoG={},
+        # Wavelet={},
         # Square={},
         # SquareRoot={},
         # Logarithm={},
         # Exponential={},
         # Gradient={},
-        LBP2D={}
+        # LBP2D={}
     )
 
     return extractor.execute(img, mask)
@@ -199,8 +199,8 @@ class RadiomicsAnalysis:
 
         # 数据集划分
         # test_size 7 3 分, random_state 每次运行都是一个稳定的结果
-        # data_train, data_test = train_test_split(self.data, test_size=0.3, random_state=15)
-        data_train, data_test = train_test_split(self.data, test_size=0.3)
+        data_train, data_test = train_test_split(self.data, test_size=0.3, random_state=15)
+        # data_train, data_test = train_test_split(self.data, test_size=0.3)
         self.data_train_a = data_train[data_train['label'] == 0]
         self.data_train_b = data_train[data_train['label'] == 1]
         self.data_test_a = data_test[data_test['label'] == 0]
@@ -397,7 +397,7 @@ class RadiomicsAnalysis:
         # 特征系数随Lambda变化曲线
         coef = self.model_lassoCV.path(self.X_train_raw, self.y_train, alphas=self.alphas, max_iter=100000)[1].T
         plt.figure(dpi=80)
-        plt.semilogx(self.model_lassoCV.alphas_, coef, '-')
+        plt.semilogx(self.model_lassoCV.alphas_, coef, '-')  # 横坐标使用对数坐标
         plt.axvline(self.model_lassoCV.alpha_, color='black', ls="--")
         plt.xlabel('Lambda')
         plt.ylabel('Coefficients')
