@@ -9,7 +9,7 @@ PKLFile = '../00_资源库/pickle_file.pkl'
 FeatureResults = '../00_资源库/feature_results'
 InfoTexts = '../00_资源库/info_texts'
 SavedImages = '../00_资源库/saved_images'
-MaxIter = 1000000
+MaxIter = 1000000*2
 
 
 def init_info(method):

@@ -127,6 +127,7 @@ def roc_curve_figure(ids, txt_name, model, X_test, y_test):
     fpr, tpr, thresholds = roc_curve(y_test, y_test_probs[:, 1], pos_label=1)
     plt.figure(figsize=(10, 10), dpi=300)
     plt.plot(fpr, tpr, marker='o')
+    plt.plot([0, 1], [0, 1], marker='.', color='pink')
     plt.xlabel("1 - Specificity")
     plt.ylabel("Sensitivity")
 

@@ -4,6 +4,7 @@ import time
 
 import pandas as pd
 from radiomics import featureextractor
+
 import myconstant
 
 
@@ -11,7 +12,8 @@ def extract_features(img, mask):
     extractor = featureextractor.RadiomicsFeatureExtractor()
     extractor.enableAllFeatures()
     extractor.enableImageTypes(
-        Original={})
+        Original={},
+        Wavelet={})
     return extractor.execute(img, mask)
 
 

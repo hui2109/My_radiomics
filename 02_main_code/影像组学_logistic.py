@@ -6,17 +6,17 @@ from batchextract import batch_extract
 from datapreprocess import data_preprocess
 from imgtonrrd import image_to_nrrd
 from lasso import lasso
-from svm import svm
+from logistic import logistic
 from t_test import t_test
 
 
-def svm_path():
+def logistic_path():
     # 初始化记录本
-    txt_name, ids = myconstant.init_info('svm')
+    txt_name, ids = myconstant.init_info('logistic')
     # 将图像转换为nrrd格式
     image_to_nrrd(38, use_pickle=True)
     # 批量提取特征，得到特征表
-    result_path = batch_extract('../00_资源库/feature_results/results_1684164086.xlsx')
+    result_path = batch_extract('../00_资源库/feature_results/results_1684210279.xlsx')
     # 数据预处理及数据集划分
     data, data_train_a, data_train_b, data_test_a, data_test_b = data_preprocess(result_path)
     print('训练集，label为0的形状', data_train_a.shape, '\n',
@@ -40,15 +40,15 @@ def svm_path():
     myconstant.write_info(txt_name, '%s %d' % ('Lasso选择出的系数不为0的特征的个数:', sum(coef != 0)))
     myconstant.write_info(txt_name, '这些特征及其系数分别是:', dict(zip(index, coef[coef != 0])))
 
-    # 支持向量机分类器
-    model = svm(X_train, y_train)
+    # 逻辑回归分类器
+    model = logistic(X_train, y_train)
     myconstant.write_info(txt_name, '训练集上的平均准确率为:', model.score(X_train, y_train))
     myconstant.write_info(txt_name, '测试集上的平均准确率为:', model.score(X_test, y_test))
     myconstant.write_info(txt_name, '测试集的正确结果为:', list(y_test))
     myconstant.write_info(txt_name, '对测试集进行结果预测的展示:', model.predict(X_test))
     myconstant.write_info(txt_name, '测试集中每种预测结果的概率展示:', model.predict_proba(X_test))
     myconstant.write_info(txt_name, '在拟合过程中用到了多少特征:', model.n_features_in_)
-    myconstant.write_info(txt_name, '展示支持向量机模型的各个参数:', model.get_params())
+    myconstant.write_info(txt_name, '展示模型的各个参数:', model.get_params())
 
     # 混淆矩阵
     cnf_matrix = metrics.confusion_matrix(y_test, model.predict(X_test))
@@ -59,4 +59,4 @@ def svm_path():
     fg.figure_all(txt_name, ids, X_train_raw, X_train, y_train, X_test, y_test, model_lassoCV, index, coef, model)
 
 
-svm_path()
+logistic_path()

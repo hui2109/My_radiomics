@@ -8,9 +8,9 @@ from PIL import Image
 import myconstant
 
 
-def image_to_nrrd(negative=38):
+def image_to_nrrd(negative=38, use_pickle=True):
     # 有pickle文件就不用再提取了
-    if os.path.exists(myconstant.PKLFile):
+    if os.path.exists(myconstant.PKLFile) and use_pickle:
         return None
 
     if not os.path.exists(myconstant.DatasetVoc):

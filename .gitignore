@@ -133,3 +133,11 @@ dmypy.json
 
 # 增加资源库文件夹
 00_资源库/
+03_案例学习/BraTS_2019/.Rproj.user/
+.Rproj.user
+
+# 增加案例数据文件夹
+03_案例学习/BraTS_2019/data/
+03_案例学习/BraTS_2019/glioma.Rproj
+03_案例学习/BraTS_2019/.Rhistory
+03_案例学习/BraTS_2019/.RData
