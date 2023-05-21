@@ -9,6 +9,12 @@ import myconstant
 
 
 def image_to_nrrd(negative=38, use_pickle=True):
+    """
+    :param negative: 红色值: 38; 绿色值: 75
+    :param use_pickle: 是否使用pickle文件
+    :return: 无返回值
+    """
+
     # 有pickle文件就不用再提取了
     if os.path.exists(myconstant.PKLFile) and use_pickle:
         return None
