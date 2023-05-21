@@ -133,6 +133,7 @@ dmypy.json
 
 # 增加资源库文件夹
 00_资源库/
+00_resources/
 03_案例学习/BraTS_2019/.Rproj.user/
 .Rproj.user
 

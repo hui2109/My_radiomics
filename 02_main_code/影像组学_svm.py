@@ -14,9 +14,9 @@ def svm_path():
     # 初始化记录本
     txt_name, ids = myconstant.init_info('svm')
     # 将图像转换为nrrd格式
-    image_to_nrrd(38, use_pickle=True)
+    image_to_nrrd(38, use_pickle=False)
     # 批量提取特征，得到特征表
-    result_path = batch_extract('../00_资源库/feature_results/results_1684164086.xlsx')
+    result_path = batch_extract()
     # 数据预处理及数据集划分
     data, data_train_a, data_train_b, data_test_a, data_test_b = data_preprocess(result_path)
     print('训练集，label为0的形状', data_train_a.shape, '\n',

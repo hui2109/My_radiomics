@@ -51,7 +51,8 @@ def move_images(selected_images: dict, label='good'):
 
 
 if __name__ == '__main__':
-    labels = ['good', 'poor']
-    for label in labels:
-        selected_images = makeup_data(label)
-        move_images(selected_images, label)
+    selected_images = makeup_data('good', num=237)
+    move_images(selected_images, 'good')
+
+    selected_images = makeup_data('poor', num=535)
+    move_images(selected_images, 'poor')

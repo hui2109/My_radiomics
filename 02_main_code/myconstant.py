@@ -1,14 +1,14 @@
 import os.path
 import time
 
-DatasetVoc = '../00_资源库/dataset_voc'
-JPEGImages = '../00_资源库/dataset_voc/JPEGImages'
-SegmentationClassPNG = '../00_资源库/dataset_voc/SegmentationClassPNG'
-NrrdFiles = '../00_资源库/nrrd_files'
-PKLFile = '../00_资源库/pickle_file.pkl'
-FeatureResults = '../00_资源库/feature_results'
-InfoTexts = '../00_资源库/info_texts'
-SavedImages = '../00_资源库/saved_images'
+DatasetVoc = '../00_resources/dataset_voc'
+JPEGImages = '../00_resources/dataset_voc/JPEGImages'
+SegmentationClassPNG = '../00_resources/dataset_voc/SegmentationClassPNG'
+NrrdFiles = '../00_resources/nrrd_files'
+PKLFile = '../00_resources/pickle_file.pkl'
+FeatureResults = '../00_resources/feature_results'
+InfoTexts = '../00_resources/info_texts'
+SavedImages = '../00_resources/saved_images'
 MaxIter = 1000000*2
 
 
