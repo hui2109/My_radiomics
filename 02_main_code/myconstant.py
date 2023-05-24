@@ -10,6 +10,7 @@ FeatureResults = '../00_resources/feature_results'
 InfoTexts = '../00_resources/info_texts'
 SavedImages = '../00_resources/saved_images'
 MaxIter = 1000000*2
+SpiltDIR = '../00_resources/split_results'
 
 
 def init_info(method):
