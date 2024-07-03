@@ -16,7 +16,7 @@ def logistic_path():
     # 将图像转换为nrrd格式
     image_to_nrrd(38, use_pickle=True)
     # 批量提取特征，得到特征表
-    result_path = batch_extract('../00_资源库/feature_results/results_1684210279.xlsx')
+    result_path = batch_extract('../00_resources/feature_results/results_1684677730.xlsx')
     # 数据预处理及数据集划分
     data, data_train_a, data_train_b, data_test_a, data_test_b = data_preprocess(result_path)
     print('训练集，label为0的形状', data_train_a.shape, '\n',

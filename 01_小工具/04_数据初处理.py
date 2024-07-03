@@ -2,13 +2,13 @@ import os
 import random
 from shutil import copy
 
-if not os.path.exists('../00_资源库/dataset_voc'):
-    os.makedirs('../00_资源库/dataset_voc/JPEGImages')
-    os.makedirs('../00_资源库/dataset_voc/SegmentationClassPNG')
+if not os.path.exists('../00_resources/dataset_voc'):
+    os.makedirs('../00_resources/dataset_voc/JPEGImages')
+    os.makedirs('../00_resources/dataset_voc/SegmentationClassPNG')
 
 
 def makeup_data(label='good', num=125):
-    prefix = f'../00_资源库/source_data/dataset_voc_{label}'
+    prefix = f'../00_resources/source_data/b_post/dataset_voc_{label}'
     keys = set()
     selected_images = {}
 
@@ -41,18 +41,18 @@ def makeup_data(label='good', num=125):
 
 def move_images(selected_images: dict, label='good'):
     for key in selected_images:
-        des_path = '../00_资源库/dataset_voc/JPEGImages/' + key
-        sor_path = f'../00_资源库/source_data/dataset_voc_{label}/JPEGImages/' + key
+        des_path = '../00_resources/dataset_voc/JPEGImages/' + key
+        sor_path = f'../00_resources/source_data/b_post/dataset_voc_{label}/JPEGImages/' + key
         copy(sor_path, des_path)
 
-        des_path = '../00_资源库/dataset_voc/SegmentationClassPNG/' + selected_images[key]
-        sor_path = f'../00_资源库/source_data/dataset_voc_{label}/SegmentationClassPNG/' + selected_images[key]
+        des_path = '../00_resources/dataset_voc/SegmentationClassPNG/' + selected_images[key]
+        sor_path = f'../00_resources/source_data/b_post/dataset_voc_{label}/SegmentationClassPNG/' + selected_images[key]
         copy(sor_path, des_path)
 
 
 if __name__ == '__main__':
-    selected_images = makeup_data('good', num=237)
+    selected_images = makeup_data('good', num=502)
     move_images(selected_images, 'good')
 
-    selected_images = makeup_data('poor', num=535)
+    selected_images = makeup_data('poor', num=1380)
     move_images(selected_images, 'poor')
